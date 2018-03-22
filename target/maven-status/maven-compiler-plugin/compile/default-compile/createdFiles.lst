@@ -1,0 +1,7 @@
+co\simplon\pfr\FredDemoPrf\model\FredUser.class
+co\simplon\pfr\FredDemoPrf\model\FredCase.class
+co\simplon\pfr\FredDemoPrf\controller\FredCaseController.class
+co\simplon\pfr\FredDemoPrf\repository\FredUserRepository.class
+co\simplon\pfr\FredDemoPrf\repository\FredCaseRepository.class
+co\simplon\pfr\FredDemoPrf\FredDemoPrfApplication.class
+co\simplon\pfr\FredDemoPrf\controller\FredUserController.class
