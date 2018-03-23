@@ -1,5 +1,6 @@
 package co.simplon.pfr.FredDemoPrf.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -23,34 +26,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "fred_case")
 @EntityListeners(AuditingEntityListener.class)
-public class FredCase {
+public class FredCase implements Serializable {
+
+	private static final long serialVersionUID = -1417904811833758353L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+
 	@Column
 	@NotBlank
-    private String name;
+	private String name;
 
-    @Column
-    private String description;
-    
-//    @ManyToMany(fetch = FetchType.LAZY,
-//            cascade = {
-//                    CascadeType.PERSIST,
-//                    CascadeType.MERGE
-//            })
-//    @JoinTable(name = "fred_case_user",
-//            joinColumns = { @JoinColumn(name = "fred_case_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "fred_user_id") })
-//    private Set<FredUser> fredUser = new HashSet<> ();
+	@Column
+	private String description;
 
+	@ManyToOne
+    @JoinColumn(name="fred_user_id", nullable=false)
+    private FredUser fredUser;
+	 
 }

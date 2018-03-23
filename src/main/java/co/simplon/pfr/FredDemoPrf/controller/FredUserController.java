@@ -25,12 +25,12 @@ public class FredUserController {
 	@Autowired
 	FredUserRepository fredUserRepository;
 	
-	@GetMapping("/user")
+	@GetMapping("/fred_user")
 	List<FredUser> getAllFredUser(){
 		return fredUserRepository.findAll();
 	}
 	
-    @GetMapping("/user/{id}")
+    @GetMapping("/fred_user/{id}")
     public ResponseEntity<FredUser> getFredUserById(@PathVariable(value = "id") Long fredUserId) {
         FredUser fredUser = fredUserRepository.findOne (fredUserId);
         if(fredUser == null) {
@@ -39,7 +39,7 @@ public class FredUserController {
         return ResponseEntity.ok().body(fredUser);
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/fred_user/{id}")
     public ResponseEntity<FredUser> updateFredUser(@PathVariable(value = "id") Long fredUserId,
                                                   @Valid @RequestBody FredUser fredUserValue) {
         FredUser fredUser = fredUserRepository.findOne(fredUserId);

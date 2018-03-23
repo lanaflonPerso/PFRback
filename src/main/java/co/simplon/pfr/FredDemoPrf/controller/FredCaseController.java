@@ -29,7 +29,7 @@ public class FredCaseController {
 	
     // Consulter toutes les FredCase
 	// "SELECT * FROM fred_case"
-    @GetMapping("/case")
+    @GetMapping("/fred_case")
     public List<FredCase> getAllPoliceCase() {
         return fredCaseRepository.findAll();
     }
@@ -53,7 +53,7 @@ public class FredCaseController {
 //                    throw e;
 //                }            }        }    }
 
-    @PostMapping("/case")
+    @PostMapping("/fred_case")
     public FredCase createFredCase(@Valid @RequestBody FredCase fredCase) {
         return fredCaseRepository.save ( fredCase );
     }
@@ -71,7 +71,7 @@ public class FredCaseController {
 
     // Mise à jour d'une FredCase
     // exemple : "UPDATE fred_case SET name ="new name" WHERE id = 1;
-    @PutMapping("/case/{id}")
+    @PutMapping("/fred_case/{id}")
     public ResponseEntity<FredCase> updateFredCase(@PathVariable(value = "id") Long fredCaseId,
                                                   @Valid @RequestBody FredCase fredCaseValue) {
         FredCase fredCase = fredCaseRepository.findOne(fredCaseId);
@@ -88,7 +88,7 @@ public class FredCaseController {
 
     // Efface une FredCase
     // "DELETE FROM fred_case WHERE id = 1;"
-    @DeleteMapping("/case/{id}")
+    @DeleteMapping("/fred_case/{id}")
     public ResponseEntity<FredCase> deleteFredCase(@PathVariable(value = "id") Long fredCaseId) {
         FredCase fredCase = fredCaseRepository.findOne(fredCaseId);
         if(fredCase == null) {
