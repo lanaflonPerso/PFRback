@@ -44,7 +44,7 @@ Au demmarrage l’application va créer et pleupler la database<br>
 Nom de la database fred_app<br>
 Elle sera peuplé par des informations fictives a des fins de test</p>
 <hr>
-<p>Vous pouvez faire aussi des tests via POSTMAn par exemple, voici les URL necessaires<br>
+<p>Vous pouvez faire aussi des tests via POSTMAN par exemple, voici les URL necessaires<br>
 fred_case</p>
 <pre><code>http://localhost:8080/api/fred_case
 
